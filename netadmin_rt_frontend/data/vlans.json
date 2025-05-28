@@ -1,0 +1,5 @@
+[
+  { "id": 10, "status": "ativo", "trafego": 150 },
+  { "id": 20, "status": "inativo", "trafego": 0 },
+  { "id": 30, "status": "ativo", "trafego": 320 }
+]
