@@ -1,20 +1,75 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NetAdmin RT</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>NetAdmin RT - Monitoramento em Tempo Real</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>NetAdmin RT - Monitoramento de VLANs</h1>
+    <div class="logo">NetAdmin <span>RT</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">VLANs</a></li>
+        <li><a href="#">Alertas</a></li>
+        <li><a href="#">Configurações</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="vlan-container">
-    <!-- Componentes dinâmicos serão injetados aqui -->
+  <main>
+    <section class="dashboard">
+      <h1>Monitoramento em Tempo Real</h1>
+      <div class="cards">
+        <div class="card">
+          <h2>Tráfego Total</h2>
+          <p>120 Mbps</p>
+        </div>
+        <div class="card">
+          <h2>VLANs Ativas</h2>
+          <p>8 VLANs</p>
+        </div>
+        <div class="card">
+          <h2>Alertas</h2>
+          <p>2 Críticos</p>
+        </div>
+      </div>
+      <div class="graph">
+        <h2>Tráfego em Tempo Real</h2>
+        <canvas id="trafficChart"></canvas>
+      </div>
+    </section>
   </main>
 
-  <script type="module" src="js/main.js"></script>
+  <footer>
+    <p>&copy; 2025 NetAdmin RT. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Placeholder para scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('trafficChart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['00:00', '00:05', '00:10', '00:15'],
+        datasets: [{
+          label: 'Tráfego Mbps',
+          data: [30, 55, 40, 70],
+          borderColor: '#00d9ff',
+          backgroundColor: 'rgba(0,217,255,0.1)',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
